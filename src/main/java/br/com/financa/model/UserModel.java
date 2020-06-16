@@ -20,6 +20,38 @@ public class UserModel {
 
 	private String password;
 
-	@Value("A")
 	private String status;
+
+	public Long getIduser() {
+		return iduser;
+	}
+
+	public void setIduser(Long iduser) {
+		this.iduser = iduser;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 }
+

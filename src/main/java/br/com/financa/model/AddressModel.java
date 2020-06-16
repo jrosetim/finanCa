@@ -1,9 +1,11 @@
 package br.com.financa.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.util.Objects;
 
@@ -28,6 +30,9 @@ public class AddressModel {
     private Integer zipcode;
 
     private String ownresidence;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private PersonModel personModel;
 
     public Long getIdaddress() {
         return idaddress;
@@ -91,6 +96,14 @@ public class AddressModel {
 
     public void setOwnresidence(String ownresidence) {
         this.ownresidence = ownresidence;
+    }
+
+    public PersonModel getPersonModel() {
+        return personModel;
+    }
+
+    public void setPersonModel(PersonModel personModel) {
+        this.personModel = personModel;
     }
 
     @Override
