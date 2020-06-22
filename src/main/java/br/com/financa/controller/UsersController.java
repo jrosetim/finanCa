@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,8 +29,6 @@ public class UsersController {
 
     @Autowired
     private UsersService usersService;
-
-    private Boolean emailExists;
 
     @RequestMapping
     public List<UsersModel> GetAllUsers(){
@@ -50,31 +49,13 @@ public class UsersController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<UsersModel> InsertUsers(@Valid @RequestBody UsersModel usersModel){
-//        UsersService us = new UsersService();
-//
-//        emailExists = us.findByEmail(usersModel.getUserEmail());
-//
-//        if (emailExists){
-//            return null;//ResponseEntity.status(HttpStatus.CONFLICT).build();
-//        }
-//
-//        UsersModel um = usersRepository.save(usersModel);
-//
-//        return ResponseEntity.ok(um);
-
-       return usersService.insertUser(usersModel);
+        usersModel.setUserstatus("A");
+        usersModel.setDatecreation(OffsetDateTime.now());
+        return usersService.insertUser(usersModel);
     }
 
     @DeleteMapping("/{userId}")
     public ResponseEntity<UsersModel> DeleteUsers(@PathVariable Long userId){
-//        if(!usersRepository.existsById(userId)){
-//            return ResponseEntity.notFound().build();
-//        }
-//
-//        usersRepository.deleteById(userId);
-//
-//        return ResponseEntity.noContent().build();
-
         usersService.deleteUser(userId);
         return ResponseEntity.noContent().build();
     }
@@ -86,8 +67,7 @@ public class UsersController {
             return ResponseEntity.notFound().build();
         }
 
-        usersModel.setUserId(userId);
-        //usersModel = usersRepository.save(usersModel);
+        usersModel.setUserid(userId);
         usersService.insertUser(usersModel);
 
         return ResponseEntity.ok(usersModel);

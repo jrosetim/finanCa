@@ -1,1 +1,0 @@
-create sequence person_sequence start with 1

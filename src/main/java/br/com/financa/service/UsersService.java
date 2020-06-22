@@ -26,7 +26,7 @@ public class UsersService {
     }
 
     public ResponseEntity<UsersModel> insertUser(UsersModel usersModel){
-        UsersModel usersModel1 = usersRepository.findByUserEmail(usersModel.getUserEmail());
+        UsersModel usersModel1 = usersRepository.findByUseremail(usersModel.getUseremail());
 
         if (usersModel1 != null && !usersModel1.equals(usersModel)){
             throw new BusinessException("E-mail já cadastrado no sistema");
