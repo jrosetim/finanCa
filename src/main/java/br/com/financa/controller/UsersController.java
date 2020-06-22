@@ -35,15 +35,15 @@ public class UsersController {
         return usersRepository.findAll();
     }
 
-    @RequestMapping("/{userId}")
-    public ResponseEntity<UsersModel> GetUsersById(@PathVariable Long userId){
-        Optional<UsersModel> um =  usersRepository.findById(userId);
+    @RequestMapping("/{userEmail}")
+    public UsersModel GetUsersByEmail(@PathVariable String userEmail){
+        UsersModel um =  usersRepository.findByUseremail(userEmail);
 
-        if (um.isPresent()){
-            return ResponseEntity.ok(um.get());
+        if (!um.toString().isEmpty()){
+            return um;
         }
 
-        return ResponseEntity.notFound().build();
+        return null;
     }
 
     @PostMapping
