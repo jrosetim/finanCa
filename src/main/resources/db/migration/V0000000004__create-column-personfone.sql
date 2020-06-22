@@ -1,0 +1,1 @@
+alter table person add column personfone varchar(20);

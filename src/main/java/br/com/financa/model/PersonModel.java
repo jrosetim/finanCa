@@ -1,80 +1,46 @@
 package br.com.financa.model;
 
-import javax.persistence.CascadeType;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.Objects;
+import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name="person")
+@Table(name = "person")
+@Getter
+@Setter
+@EqualsAndHashCode
 public class PersonModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_sequence")
-    private Long idperson;
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "person_sequence")
+    private Long personid;
 
-    private String name;
+    @NotBlank
+    private String personname;
 
-    private String email;
-
+    @NotBlank
     private String cpf;
 
-    private String civilstatus;
+    @NotBlank
+    private String rg;
 
-    public Long getIdperson() {
-        return idperson;
-    }
+    @NotBlank
+    private String personfone;
 
-    public void setIdperson(Long idperson) {
-        this.idperson = idperson;
-    }
+    @OneToOne
+    @JoinColumn(name = "genderid")
+    private GenderModel genderModel;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getCivilstatus() {
-        return civilstatus;
-    }
-
-    public void setCivilstatus(String civilstatus) {
-        this.civilstatus = civilstatus;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PersonModel that = (PersonModel) o;
-        return idperson.equals(that.idperson);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(idperson);
-    }
+    @OneToOne
+    @JoinColumn(name = "userid")
+    private UsersModel usersModel;
 }
