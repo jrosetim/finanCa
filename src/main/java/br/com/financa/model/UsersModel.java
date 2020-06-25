@@ -29,13 +29,15 @@ public class UsersModel {
     private Long userid;
 
     @NotBlank
+    private String username;
+
+    @NotBlank
     @Email
     private String useremail;
 
     @NotBlank
     private String userpassword;
 
-    @NotBlank
     @Size(max = 1)
     private String userstatus;
 
