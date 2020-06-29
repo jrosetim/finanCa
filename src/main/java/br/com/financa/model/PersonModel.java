@@ -27,16 +27,10 @@ public class PersonModel {
     private Long personid;
 
     @NotBlank
-    private String personname;
-
-    @NotBlank
     private String cpf;
 
     @NotBlank
     private String rg;
-
-    @NotBlank
-    private String personfone;
 
     @OneToOne
     @JoinColumn(name = "genderid")
@@ -45,4 +39,18 @@ public class PersonModel {
     @OneToOne
     @JoinColumn(name = "userid")
     private UsersModel user;
+
+    private String street;
+
+    private String neighborhood;
+
+    private String zipcode;
+
+    private String city;
+
+    private String state;
+
+    private String addressnumber;
+
+    private String personstate;
 }

@@ -36,14 +36,20 @@ public class UsersController {
     }
 
     @RequestMapping("/{userEmail}")
-    public UsersModel GetUsersByEmail(@PathVariable String userEmail){
+    public ResponseEntity<UsersModel> GetUsersByEmail(@PathVariable String userEmail){
         UsersModel um =  usersRepository.findByUseremail(userEmail);
 
-        if (!um.toString().isEmpty()){
-            return um;
+        try {
+            return ResponseEntity.ok(um);
+        }catch (Exception error){
+            return ResponseEntity.notFound().build();
         }
 
-        return null;
+//        if ( !um.toString().isEmpty()){
+//            return ResponseEntity.ok(um);
+//        }
+//
+//        return ResponseEntity.notFound().build();
     }
 
     @PostMapping

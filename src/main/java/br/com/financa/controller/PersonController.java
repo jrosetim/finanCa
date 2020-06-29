@@ -48,14 +48,15 @@ public class PersonController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<PersonModel> insertPerson(@Valid @RequestBody PersonModel personModel){
-        UsersModel usersModel = usersRepository.findById(personModel.getUser().getUserid())
-                .orElseThrow( () -> new BusinessException("User not found"));
-
-        GenderModel genderModel = genderRepository.findById((personModel.getGender().getGenderid()))
-                .orElseThrow( () -> new BusinessException("Gender not found"));
-
-        personModel.setUser(usersModel);
-        personModel.setGender(genderModel);
+//        UsersModel usersModel = usersRepository.findById(personModel.getUser().getUserid())
+//                .orElseThrow( () -> new BusinessException("User not found"));
+//
+//        GenderModel genderModel = genderRepository.findById((personModel.getGender().getGenderid()))
+//                .orElseThrow( () -> new BusinessException("Gender not found"));
+//
+//        personModel.setUser(usersModel);
+//        personModel.setGender(genderModel);
+//        personModel.setPersonstate("A");
         PersonModel pm = personService.insertPerson(personModel);
 
         return ResponseEntity.ok(pm);

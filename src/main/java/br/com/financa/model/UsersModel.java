@@ -44,4 +44,6 @@ public class UsersModel {
     @NotNull
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private OffsetDateTime datecreation;
+
+    private String usertype;
 }
