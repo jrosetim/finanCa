@@ -37,7 +37,7 @@ public class PersonModel {
     private GenderModel gender;
 
     @OneToOne
-    @JoinColumn(name = "userid")
+    @JoinColumn(name = "userid", referencedColumnName = "userid")
     private UsersModel user;
 
     private String street;
