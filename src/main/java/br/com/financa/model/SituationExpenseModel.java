@@ -11,11 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "situationexpanse")
+@Table(name = "situationexpense")
 @Getter
 @Setter
 @EqualsAndHashCode
-public class SituationExpanseModel {
+public class SituationExpenseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
