@@ -44,19 +44,15 @@ public class UsersController {
         }catch (Exception error){
             return ResponseEntity.notFound().build();
         }
-
-//        if ( !um.toString().isEmpty()){
-//            return ResponseEntity.ok(um);
-//        }
-//
-//        return ResponseEntity.notFound().build();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<UsersModel> InsertUsers(@Valid @RequestBody UsersModel usersModel){
         usersModel.setUserstatus("A");
+        usersModel.setUsertype("U");
         usersModel.setDatecreation(OffsetDateTime.now());
+
         return usersService.insertUser(usersModel);
     }
 
