@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.time.OffsetDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,7 +52,7 @@ public class UsersController {
     public ResponseEntity<UsersModel> InsertUsers(@Valid @RequestBody UsersModel usersModel){
         usersModel.setUserstatus("A");
         usersModel.setUsertype("U");
-        usersModel.setDatecreation(OffsetDateTime.now());
+        //usersModel.setDatecreation(Date.now());
 
         return usersService.insertUser(usersModel);
     }

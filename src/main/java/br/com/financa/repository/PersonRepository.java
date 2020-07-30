@@ -13,5 +13,6 @@ import java.util.Optional;
 @Repository
 public interface PersonRepository extends JpaRepository<PersonModel, Long> {
     //List<PersonModel> findByUser(Optional<UsersModel> user);
-    PersonModel findByUser(Optional<UsersModel> user);
+//    PersonModel findByUser(Optional<UsersModel> user);
+    PersonModel findByEmail(String email);
 }

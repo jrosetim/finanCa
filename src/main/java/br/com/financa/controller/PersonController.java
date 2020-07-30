@@ -32,9 +32,6 @@ public class PersonController {
     private PersonRepository personRepository;
 
     @Autowired
-    private UsersRepository usersRepository;
-
-    @Autowired
     private GenderRepository genderRepository;
 
     @Autowired
@@ -61,16 +58,11 @@ public class PersonController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<PersonModel> getPersonByUserId(@PathVariable Long userId){
-        Optional<UsersModel> um = usersRepository.findById(userId);
+    @GetMapping("/{email}")
+    public ResponseEntity<PersonModel> getPersonByEmail(@PathVariable String email){
+        PersonModel pm = personRepository.findByEmail(email);
 
-        if (um.isPresent()) {
-            PersonModel pm = personRepository.findByUser(um);
-            return ResponseEntity.ok(pm);
-        }else{
-            return ResponseEntity.noContent().build();
-        }
+        return ResponseEntity.ok(pm);
     }
 
     @PutMapping("/{personId}")

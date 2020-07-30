@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class PaymentoMethodModel {
+public class PaymentMethodModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "paymentmethod_sequence")

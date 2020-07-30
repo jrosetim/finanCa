@@ -21,6 +21,9 @@ insert into gender values(3, 'Outro' );
 
 create table person(
   personid integer not null primary key,
+  name varchar(100),
+  email varchar(100),
+  password varchar(100),
   cpf varchar(14),
   rg varchar(20),
   genderid integer,
@@ -35,6 +38,5 @@ create table person(
 );
 
 alter table person add constraint fk_gender foreign key (genderid) references gender(genderid);
-alter table person add constraint fk_users foreign key (userid) references users(userid);
 
 create sequence person_sequence start with 1;

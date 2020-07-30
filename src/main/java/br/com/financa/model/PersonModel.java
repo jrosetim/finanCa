@@ -27,6 +27,15 @@ public class PersonModel {
     private Long personid;
 
     @NotBlank
+    private String name;
+
+    @NotBlank
+    private String email;
+
+    @NotBlank
+    private String password;
+
+    @NotBlank
     private String cpf;
 
     @NotBlank
@@ -35,10 +44,6 @@ public class PersonModel {
     @OneToOne
     @JoinColumn(name = "genderid")
     private GenderModel gender;
-
-    @OneToOne
-    @JoinColumn(name = "userid", referencedColumnName = "userid")
-    private UsersModel user;
 
     private String street;
 

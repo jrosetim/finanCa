@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class GroupExpenseModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "groupexepense_sequence")
     private Long id;
 
     private String description;

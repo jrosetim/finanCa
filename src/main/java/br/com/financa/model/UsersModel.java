@@ -16,6 +16,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.OffsetDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -43,7 +44,7 @@ public class UsersModel {
 
     @NotNull
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private OffsetDateTime datecreation;
+    private Date datecreation;
 
     private String usertype;
 }

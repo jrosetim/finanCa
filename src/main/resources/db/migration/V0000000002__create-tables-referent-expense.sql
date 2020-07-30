@@ -48,7 +48,7 @@ insert into groupexpense values(16, 'Escola', 'A');
 insert into groupexpense values(17, 'Material escolar/faculdade', 'A');
 insert into groupexpense values(18, 'Curso', 'A');
 insert into groupexpense values(19, 'Educação', 'A');
-insert into groupexpense values(19, 'TV por assinatura', 'A');
+insert into groupexpense values(20, 'TV por assinatura', 'A');
 
 create table situationexpense(
   id numeric(10,0),
@@ -60,8 +60,8 @@ insert into situationexpense values(1, 'Conferido', 'A');
 insert into situationexpense values(2, 'Aproximado', 'A');
 insert into situationexpense values(3, 'Conferir', 'A');
 
-create sequence paymentmethod_sequence start with 1;
+create sequence paymentmethod_sequence start with 7;
 
-create sequence typeexpense_sequence start with 1;
+create sequence typeexpense_sequence start with 6;
 
-create sequence groupexpense_sequence start with 1;
+create sequence groupexepense_sequence start with 21;

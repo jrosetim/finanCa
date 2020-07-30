@@ -12,8 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import java.time.OffsetDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name="expense")
@@ -26,13 +25,13 @@ public class ExpenseModel {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "expense_sequence")
     private Long id;
 
-    private OffsetDateTime dateexpense;
+    private Date dateexpense;
 
     private String description;
 
     @OneToOne
     @JoinColumn(name = "paymentid", referencedColumnName = "id")
-    private PaymentoMethodModel paymentmethod;
+    private PaymentMethodModel paymentmethod;
 
     @OneToOne
     @JoinColumn(name="typeexpenseid", referencedColumnName = "id")

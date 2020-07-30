@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class TypeExpenseModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "typeexpense_sequence")
     private Long id;
 
     private String description;

@@ -17,19 +17,12 @@ public class PersonService {
     private PersonRepository personRepository;
 
     @Autowired
-    private UsersRepository usersRepository;
-
-    @Autowired
     private GenderRepository genderRepository;
 
     public PersonModel insertPerson( PersonModel personModel ){
-        UsersModel usersModel = usersRepository.findById(personModel.getUser().getUserid())
-                .orElseThrow( () -> new BusinessException("User not found"));
-
         GenderModel genderModel = genderRepository.findById((personModel.getGender().getGenderid()))
                 .orElseThrow( () -> new BusinessException("Gender not found"));
 
-        personModel.setUser(usersModel);
         personModel.setGender(genderModel);
         personModel.setPersonstate("A");
 
